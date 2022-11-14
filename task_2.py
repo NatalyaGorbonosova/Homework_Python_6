@@ -1,10 +1,13 @@
+# Задача 2. Напишите программу вычисления арифметического выражения заданного строкой. 
+# Используйте операции +,-,/,*. приоритет операций стандартный.
 import re
 def text_in_list(text):
     new_text = text.replace(' ', '')
-    i = 0
+    if new_text[0] == '-': i =1
+    else: i = 0
     list_operate = ['+', '-', '*', '/', '(', ')']
     while i < len(new_text):
-        if new_text[i] in list_operate and i!=0:
+        if new_text[i] in list_operate:
             new_text = new_text[0:i] + ' ' + new_text[i] + ' ' + new_text[i+1:len(new_text)]
             i += 2
         else: i += 1
@@ -23,7 +26,6 @@ def find_mult_div(list):
     while '*' in list or '/' in list:
         ind_m = find_ind_operation('*', list)
         ind_d = find_ind_operation('/', list)
-        
         if ind_m != -1 and ind_d == -1:
             result = float(list[ind_m - 1]) * float(list[ind_m + 1])
             list[ind_m] = str(result)

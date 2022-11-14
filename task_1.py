@@ -54,7 +54,7 @@ try:
         else: print('Эта ячейка уже заполнена, ход переходит противнику')
         stroke_number += 1
         result = game_over(stroke_number, game_field)
-        if result == 'You win!!!' or result == 'You win!!!':
+        if result == 'You win!!!' or result == 'Bot win':
             print(result)
             break
         stroke = bot_stroke(game_field)
@@ -63,7 +63,7 @@ try:
         print_field(game_field)
         stroke_number += 1
         result = game_over(stroke_number, game_field)
-        if result == 'You win!!!' or result == 'You win!!!':
+        if result == 'You win!!!' or result == 'Bot win':
             print(result)
             break
 except: print('Something wrong')
